@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500&amp;subset=chinese-traditional" rel="stylesheet">
-    <script src="//code.jquery.com/jquery-3.1.1.js">
+    <script src="https://code.jquery.com/jquery-3.3.1.js">
     </script>
     <title>張家銨 Jia-An Chang</title>
     <style>
@@ -40,7 +40,18 @@
       nav button:hover{
           color: rgba(235, 237, 236,0.3);
       }
-
+      #bar{
+        position:absolute;
+        width: 1.7rem;
+        height: 0.03rem;
+        top:3.8rem;
+        left: 10.45rem;
+        background-color: rgb(235, 237, 236);
+        -webkit-transition: left 0.6s ease-in-out;
+        -moz-transition: left 0.6s ease-in-out;
+        -o-transition: left 0.6s ease-in-out;
+        transition: left 0.6s ease-in-out;
+      }
       body{
         
         background-color: rgb(61, 61, 59);
@@ -77,13 +88,14 @@
       }
       #contact{
         position: absolute;
-        top:3.5rem;
+        top:3.6rem;
         color:rgb(235, 237, 236);
         font-size: 0.4rem;
         font-weight: 100;
+        letter-spacing: 0.04rem;
         width: 10rem;
         text-align: center;
-        left: 10rem;
+        left: 10.2rem;
       }
       #lg_btn button{
           background-color: rgba(0, 0, 0, 0);
@@ -105,7 +117,7 @@
       #lg_btn{
         position: absolute;
         left: 10.5rem;
-        top:  4.5rem;
+        top:  5rem;
       }
       #lg_btn li{
         float: left;
@@ -115,11 +127,12 @@
       #school{
         position: absolute;
         top:1rem;
-        margin: 2.5rem 5rem;
+        margin: 1.5rem 5.5rem;
         color: rgb(235, 237, 236);
         font-size: 0.5rem;
         width: 15rem;
         font-weight: 100;
+        text-align: center;
       }
 
     </style>
@@ -131,6 +144,7 @@
         <li><button id="skill">技能與作品集</button></li>  
       </ul>
     </nav>
+    <div id="bar"></div>
   </head>
   <body>
     <div id="container"></div>
@@ -140,11 +154,12 @@
         const name='<h1>張家銨 Jia An Chang</h1>';
         const profile='<img src="./profile.png" id="profile" alt="profile"/>';
         const lg_btn='<ul id="lg_btn"><li><button>繁體中文</button></li><li><button>English</button></li><ul>';
-        const contact='<p id="contact">phone: 0928614772<br/>email:  at5lp6andy@gmail.com<br/>Github: https://github.com/JiaAnTW</p>';
+        const contact='<p id="contact">國立成功大學 資訊工程學系學士班<br/>phone: 0928614772<br/>email:  at5lp6andy@gmail.com<br/>Github: https://github.com/JiaAnTW</p>';
         document.getElementById("container").innerHTML=name+profile+contact+lg_btn;
         //go to home page
         $("#home").click(function(){
           now=0;
+          $('#bar').css("left","10.45rem");
           $("#container").fadeOut("slow",function(){
               document.getElementById("container").innerHTML=name+profile+contact+lg_btn;
               });
@@ -154,6 +169,7 @@
         $("#intro").click(
           function(){
             now=1;
+            $('#bar').css("left","13.8rem");
             $("#container").fadeOut("slow",function(){
               document.getElementById("container").innerHTML="";
               });
@@ -161,11 +177,12 @@
             }
         );
         //Elements of experience page
-        const school='<span id="school">生日 : 1998/11/30<br/><br/> 服役狀況: 尚未服役<br/><br/>學歷:<br/>2017.09~2018.08 — 國立成功大學 交通管理科學學系學士班 <br/>2018.09~now — 國立成功大學 資訊工程學系學士班(大二轉系生)</span>';
+        const school='<span id="school">姓名: 張家銨<br/><br/> 生日 : 1998/11/30<br/><br/> 服役狀況: 尚未服役<br/><br/>學歷:<br/>2017.09~2018.08 — 國立成功大學 交通管理科學學系學士班 <br/>2018.09~現今— 國立成功大學 資訊工程學系學士班(大二轉系生)</span>';
         //go to experience page
         $("#exp").click(
           function(){
             now=2;
+            $('#bar').css("left","17.65rem");
             $("#container").fadeOut("slow",function(){
               document.getElementById("container").innerHTML=school;
               });
@@ -176,6 +193,7 @@
         $("#skill").click(
           function(){
             now=3;
+            $('#bar').css("left","22rem");
             $("#container").fadeOut("slow",function(){
               document.getElementById("container").innerHTML="";
               });

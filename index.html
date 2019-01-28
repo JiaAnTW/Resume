@@ -1,0 +1,188 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500&amp;subset=chinese-traditional" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+    </script>
+    <title>張家銨 Jia-An Chang</title>
+    <style>
+      html{
+        height: 100%;
+        font-size: 45px;
+        font-size: 3vw;
+        font-family: 'Noto Sans TC';
+      }
+      nav{
+        position: absolute;
+        left:9.0rem;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      nav li{
+        float: left;
+        padding: 0.2rem 0.8rem;
+      }
+      nav button{
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(235, 237, 236);
+        font-weight: 100;
+        font-size: 0.5rem;
+        outline: none;
+        border: none;
+        top: 1em;
+        margin: 1.5rem auto; 
+        font-family: 'Noto Sans TC';
+      }
+
+      nav button:hover{
+          color: rgba(235, 237, 236,0.3);
+      }
+
+      body{
+        
+        background-color: rgb(61, 61, 59);
+      }
+      #container{
+        max-width: 100%;
+        position: absolute;
+        top:10vw;
+        left: 15vw;
+        width: 70vw;
+        height: 20vw;
+      }
+      h1{
+        font-weight: 300;
+        font-size: 0.7rem;
+        position: absolute;
+        margin: 2.7rem 3rem;
+        width: 7.3rem;
+        color:rgb(235, 237, 236);
+        border-radius: 1rem;
+        border: 1rem;
+        text-align: center;
+      }
+      #profile{
+        position: absolute;
+        left: 6rem;
+        width: 4.5rem;
+        top: 2.5rem;
+      }
+      @media screen and (min-width: 400px){
+        h1{
+          left: 8.5rem;
+        }
+      }
+      #contact{
+        position: absolute;
+        top:3.5rem;
+        color:rgb(235, 237, 236);
+        font-size: 0.4rem;
+        font-weight: 100;
+        width: 10rem;
+        text-align: center;
+        left: 10rem;
+      }
+      #lg_btn button{
+          background-color: rgba(0, 0, 0, 0);
+          color:rgb(235, 237, 236);
+          font-family: 'Noto Sans TC';
+          border-radius: 5rem;
+          width: 2.5rem;
+          height: 0.8rem;
+          font-size: 0.4rem;
+          font-weight: 100;
+          border-color: rgb(235, 237, 236);
+          outline: none;
+      }
+
+      #lg_btn button:hover{
+          background-color: rgba(235, 237, 236,0.1);
+          border-color: rgba(235, 237, 236,0.3);
+      }
+      #lg_btn{
+        position: absolute;
+        left: 10.5rem;
+        top:  4.5rem;
+      }
+      #lg_btn li{
+        float: left;
+        padding: 0.2rem 0.7rem;
+      }
+      
+      #school{
+        position: absolute;
+        top:1rem;
+        margin: 2.5rem 5rem;
+        color: rgb(235, 237, 236);
+        font-size: 0.5rem;
+        width: 15rem;
+        font-weight: 100;
+      }
+
+    </style>
+    <nav>
+      <ul>
+        <li><button id="home">首頁</button></li>
+        <li><button id="intro">個人介紹</button></li> 
+        <li><button id="exp">基本資料</button></li>  
+        <li><button id="skill">技能與作品集</button></li>  
+      </ul>
+    </nav>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+        var now=0;
+        //Elements of home page
+        const name='<h1>張家銨 Jia An Chang</h1>';
+        const profile='<img src="./profile.png" id="profile" alt="profile"/>';
+        const lg_btn='<ul id="lg_btn"><li><button>繁體中文</button></li><li><button>English</button></li><ul>';
+        const contact='<p id="contact">phone: 0928614772<br/>email:  at5lp6andy@gmail.com<br/>Github: https://github.com/JiaAnTW</p>';
+        document.getElementById("container").innerHTML=name+profile+contact+lg_btn;
+        //go to home page
+        $("#home").click(function(){
+          now=0;
+          $("#container").fadeOut("slow",function(){
+              document.getElementById("container").innerHTML=name+profile+contact+lg_btn;
+              });
+          $("#container").fadeIn("slow");
+          });
+      //go to introduction page
+        $("#intro").click(
+          function(){
+            now=1;
+            $("#container").fadeOut("slow",function(){
+              document.getElementById("container").innerHTML="";
+              });
+            $("#container").fadeIn("slow");
+            }
+        );
+        //Elements of experience page
+        const school='<span id="school">生日 : 1998/11/30<br/><br/> 服役狀況: 尚未服役<br/><br/>學歷:<br/>2017.09~2018.08 — 國立成功大學 交通管理科學學系學士班 <br/>2018.09~now — 國立成功大學 資訊工程學系學士班(大二轉系生)</span>';
+        //go to experience page
+        $("#exp").click(
+          function(){
+            now=2;
+            $("#container").fadeOut("slow",function(){
+              document.getElementById("container").innerHTML=school;
+              });
+            $("#container").fadeIn("slow");
+            }
+        );
+        //go to skill page
+        $("#skill").click(
+          function(){
+            now=3;
+            $("#container").fadeOut("slow",function(){
+              document.getElementById("container").innerHTML="";
+              });
+            $("#container").fadeIn("slow");
+            }
+        );
+    </script> 
+  </body>
+
+</html>

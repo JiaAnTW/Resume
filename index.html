@@ -2,140 +2,11 @@
 <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500&amp;subset=chinese-traditional" rel="stylesheet">
+    <link rel=stylesheet type="text/css" href="./index.css">
     <script src="//code.jquery.com/jquery-3.3.1.js">
     </script>
+    
     <title>張家銨 Jia-An Chang</title>
-    <style>
-      html{
-        height: 100%;
-        font-size: 45px;
-        font-size: 3vw;
-        font-family: 'Noto Sans TC';
-      }
-      nav{
-        position: absolute;
-        left:9.0rem;
-      }
-
-      ul {
-        list-style-type: none;
-      }
-
-      nav li{
-        float: left;
-        padding: 0.2rem 0.8rem;
-      }
-      nav button{
-        background-color: rgba(0, 0, 0, 0);
-        color: rgb(235, 237, 236);
-        font-weight: 100;
-        font-size: 0.5rem;
-        outline: none;
-        border: none;
-        top: 1em;
-        margin: 1.5rem auto; 
-        font-family: 'Noto Sans TC';
-      }
-
-      nav button:hover{
-          color: rgba(235, 237, 236,0.3);
-      }
-      #bar{
-        position:absolute;
-        width: 1.7rem;
-        height: 0.03rem;
-        top:3.8rem;
-        left: 10.45rem;
-        background-color: rgb(235, 237, 236);
-        -webkit-transition: left 0.6s ease-in-out;
-        -moz-transition: left 0.6s ease-in-out;
-        -o-transition: left 0.6s ease-in-out;
-        transition: left 0.6s ease-in-out;
-      }
-      body{
-        
-        background-color: rgb(61, 61, 59);
-      }
-      #container{
-        max-width: 100%;
-        position: absolute;
-        top:10vw;
-        left: 15vw;
-        width: 70vw;
-        height: 20vw;
-      }
-      h1{
-        font-weight: 300;
-        font-size: 0.7rem;
-        position: absolute;
-        margin: 2.7rem 3rem;
-        width: 7.3rem;
-        color:rgb(235, 237, 236);
-        border-radius: 1rem;
-        border: 1rem;
-        text-align: center;
-      }
-      #profile{
-        position: absolute;
-        left: 6rem;
-        width: 4.5rem;
-        top: 2.5rem;
-      }
-      @media screen and (min-width: 400px){
-        h1{
-          left: 8.5rem;
-        }
-      }
-      #contact{
-        position: absolute;
-        top:3.6rem;
-        color:rgb(235, 237, 236);
-        font-size: 0.4rem;
-        font-weight: 100;
-        letter-spacing: 0.04rem;
-        width: 10rem;
-        text-align: center;
-        left: 10.2rem;
-      }
-      #lg_btn button{
-          background-color: rgba(0, 0, 0, 0);
-          color:rgb(235, 237, 236);
-          font-family: 'Noto Sans TC';
-          border-radius: 5rem;
-          width: 2.5rem;
-          height: 0.8rem;
-          font-size: 0.4rem;
-          font-weight: 100;
-          border-color: rgb(235, 237, 236);
-          outline: none;
-      }
-
-      #lg_btn button:hover{
-          background-color: rgba(235, 237, 236,0.1);
-          border-color: rgba(235, 237, 236,0.3);
-      }
-      #lg_btn{
-        position: absolute;
-        left: 10.5rem;
-        top:  5rem;
-      }
-      #lg_btn li{
-        float: left;
-        padding: 0.2rem 0.7rem;
-      }
-      
-      #school{
-        position: absolute;
-        top:1rem;
-        margin: 1.5rem 5.5rem;
-        color: rgb(235, 237, 236);
-        font-size: 0.5rem;
-        width: 15rem;
-        font-weight: 100;
-        text-align: center;
-      }
-
-    </style>
     <nav>
       <ul>
         <li><button id="home">首頁</button></li>
@@ -165,13 +36,15 @@
               });
           $("#container").fadeIn("slow");
           });
+          //Elements of home page
+          const statement='高中時開始自學程式，大一跳過基礎直接修完資工系程式設計(二)後更加確認了自己的興趣。我喜歡在研究程式碼的同時，去了解並學習和該專案有關的知識(如:前端的UI/UX、後端的商業邏輯)，試著讓自己的專案人性化、涵蓋相關領域本身的特點。<br/><br/>大二那年轉到了資工系。<br/><br/>在過往沒有什麼認識的人的修課背景下，自學變成我很熟悉且樂在其中的事情(目前正在自學python及加強自己對前端網頁程式設計的知識)，我喜歡為了解決生活中的問題而去學習技術。因為自學過程發現自己對語言細節規定的了解不夠扎實，我正在尋求一份「c++或前端網頁程式設計的實習機會」，希望透過實戰補足自己疏漏的技能。';
       //go to introduction page
         $("#intro").click(
           function(){
             now=1;
             $('#bar').css("left","13.8rem");
             $("#container").fadeOut("slow",function(){
-              document.getElementById("container").innerHTML="";
+              document.getElementById("container").innerHTML='<span id="statement">'+statement+'</span>';
               });
             $("#container").fadeIn("slow");
             }
@@ -189,18 +62,44 @@
             $("#container").fadeIn("slow");
             }
         );
+        //Elements of skill page
+        const skill_list='<span id="skill_list">語言/框架: C++, html5, css, javascript(ES6), jquery, React.js<br/>(點選下面圖片可觀看原始碼)</span>';
+        const project_asset=[
+          {pic: "./sudoku.png", topic:"數獨GUI", tool:"C++(Qt environment)",number: 0},
+          {pic: "./c++.png", topic:"你看起來很想學C++", tool:"C++(Qt environment)",number: 1},
+          {pic: "./tcm.png", topic:"2019成大交管營官網", tool:"HTML5, css3, javascript(ES6), React.js",number: 2},
+          {pic: "./ppt.png", topic:"其他: 簡報作品", tool:"以PowerPoint為主，Adobe AI/PS為輔",number: 3},
+          ];
+
+        const project=project_asset.map(Object=>{
+            const link=[
+              'https://github.com/JiaAnTW/NCKU_1stGrade_3_CSProgramDesign2_Project2',
+              'https://github.com/JiaAnTW/NCKU_1stGrade_3_CSProgramDesign2_Project3',
+              'https://github.com/JiaAnTW/NCKU_TCM2019',
+              'https://1drv.ms/f/s!AqBwgwb-3eO4gmrrmgyxguaOtw53',
+            ];
+            const describe=[
+            '大一下專案作業，課程要求在Qt環境下製作可遊玩的GUI數獨遊戲(能作答、檢查答案)及自動解題，我在這之外額外做了單機雙人對戰比分系統、難度分級系統。',
+            '大一下專案作業，課程要求在Qt環境下加入多型、製作類似「雷霆戰機」的GUI遊戲。我將一般人學習C++的過程結合在遊戲中，並額外加入了成就紀錄系統，玩家在關掉遊戲後仍可保有其獲得成就，並能在下次遊玩時檢視。',
+            '大二上使用create_react_app製作，包含手機版和電腦版。程式、美術設計、UI/UX設計、伺服器架設......跟網站有關一切皆為我自己製作。由於剛開始製作時自己的RWD技術不成熟，改以將電腦版網頁和手機版網頁架在不同伺服器，偵測使用者載具後導向對應網站。<a href="http://wintercamp.tcm.ncku.edu.tw/#/" target="_blank" style="font-weight:500;color:rgb(235, 237, 236)">網站連結</a>',
+            '在大一上時曾在社團性質的簡報工作坊擔任工作人員，因而對簡報產生興趣。這些是目前大學以來我所製作的簡報，我希望能把簡報「資訊傳達」的觀念和技術融入自己製作的網站中',
+            ];
+            return '<div id="project_container"><a href="'+link[Object.number]+'" target="_blank"><img src="'+Object.pic+'" id="project_img" alt="p1"/></a> '+' <h2 id="project_topic">'+ Object.topic +'</h2>'+'<span id="project_content">'+Object.tool+'<br/><br/>'+describe[Object.number]+'</span></div>';
+        }).join('');
+
         //go to skill page
         $("#skill").click(
           function(){
             now=3;
             $('#bar').css("left","22rem");
             $("#container").fadeOut("slow",function(){
-              document.getElementById("container").innerHTML="";
+              document.getElementById("container").innerHTML=skill_list+project;
               });
             $("#container").fadeIn("slow");
             }
         );
     </script> 
+    
   </body>
 
 </html>

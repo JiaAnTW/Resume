@@ -1,7 +1,6 @@
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="English">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500&amp;subset=chinese-traditional" rel="stylesheet">
     <link rel=stylesheet type="text/css" href="./index.css">
     <script src="//code.jquery.com/jquery-3.3.1.js">
@@ -10,10 +9,10 @@
     <title>張家銨 Jia-An Chang</title>
     <nav>
       <ul>
-        <li><button id="home">首頁</button></li>
-        <li><button id="intro">個人介紹</button></li> 
-        <li><button id="exp">基本資料</button></li>  
-        <li><button id="skill">技能與作品集</button></li>  
+        <li><button id="home">home</button></li>
+        <li><button id="intro">introduction</button></li> 
+        <li><button id="exp">profile</button></li>  
+        <li><button id="skill">skill/project</button></li>  
       </ul>
     </nav>
     <div id="bar"></div>
@@ -25,13 +24,12 @@
         //Elements of home page
         const name='<h1>張家銨 Jia An Chang</h1>';
         const profile='<img src="./profile.png" id="profile" alt="profile"/>';
-        const lg_btn='<ul id="lg_btn"><li><button id="Ch">繁體中文</button></li><li><button id="En">English</button></li><ul>';
-        const contact='<p id="contact">國立成功大學 資訊工程學系學士班<br/>phone: 0928614772<br/>email:  at5lp6andy@gmail.com<br/>Github: https://github.com/JiaAnTW</p>';
-        
-        $("#En").click(function(){
-          document.location.href='./En.html';
+        const lg_btn='<ul id="lg_btn" style="top:6.5rem"><li><button id="Ch">繁體中文</button></li><li><button id="En">English</button></li><ul>';
+        const contact='<p id="contact">National Cheng Kung University<br/>undergraduate student of <br/>Computer Science and Information Engineering<br/>phone: 0928614772<br/>email:  at5lp6andy@gmail.com<br/>Github: https://github.com/JiaAnTW</p>';
+        document.getElementById("container").innerHTML=name+profile+contact+lg_btn;
+        $("#Ch").click(function(){
+          document.location.href='./index.html';
           });
-        
         //go to home page
         $("#home").click(function(){
           now=0;
@@ -47,7 +45,7 @@
         $("#intro").click(
           function(){
             now=1;
-            $('#bar').css("left","13.8rem");
+            $('#bar').css("left","14.3rem");
             $("#container").fadeOut("slow",function(){
               document.getElementById("container").innerHTML='<span id="statement">'+statement+'</span>';
               });
@@ -60,7 +58,7 @@
         $("#exp").click(
           function(){
             now=2;
-            $('#bar').css("left","17.65rem");
+            $('#bar').css("left","18.35rem");
             $("#container").fadeOut("slow",function(){
               document.getElementById("container").innerHTML=school;
               });
@@ -92,68 +90,16 @@
             return '<div id="project_container"><a href="'+link[Object.number]+'" target="_blank"><img src="'+Object.pic+'" id="project_img" alt="p1"/></a> '+' <h2 id="project_topic">'+ Object.topic +'</h2>'+'<span id="project_content">'+Object.tool+'<br/><br/>'+describe[Object.number]+'</span></div>';
         }).join('');
 
-
-        const changeWindow=(type)=>{
-          if(type===0){
-            now=0;
-            $('#bar').css("left","10.45rem");
-            $("#container").fadeOut("slow",function(){
-              document.getElementById("container").innerHTML=name+profile+contact+lg_btn;
-              });
-            $("#container").fadeIn("slow");
-          }
-          else if(type===1){
-            now=1;
-            $('#bar').css("left","13.8rem");
-            $("#container").fadeOut("slow",function(){
-              document.getElementById("container").innerHTML='<span id="statement">'+statement+'</span>';
-              });
-            $("#container").fadeIn("slow");
-          }
-          else if(type===2){
-            now=2;
-            $('#bar').css("left","17.65rem");
-            $("#container").fadeOut("slow",function(){
-              document.getElementById("container").innerHTML=school;
-              });
-            $("#container").fadeIn("slow");
-          }
-
-          else if(type===3){
+        //go to skill page
+        $("#skill").click(
+          function(){
             now=3;
             $('#bar').css("left","22rem");
             $("#container").fadeOut("slow",function(){
               document.getElementById("container").innerHTML=skill_list+project;
               });
             $("#container").fadeIn("slow");
-          }
-          else if(type==='m'){
-            document.getElementById("container").innerHTML=name+profile+contact+lg_btn+'<span id="statement">'+statement+'</span>'+school+skill_list+project;
-          }
-          else
-            document.getElementById("container").innerHTML=name+profile+contact+lg_btn;  
-        }
-
-
-        if($(window).width()<=765)
-          changeWindow('m');
-        else
-          changeWindow(-1);
-
-        $(document).ready(function(){
-            $(window).resize(function() {
-                  if($(window).width()<=765)
-                    changeWindow('m');
-                  else
-                    changeWindow(-1);
-              });
-        });
-
-        //go to skill page
-         $("#skill").click(
-          function(){
-            changeWindow(3);
-          }
+            }
         );
     </script> 
     

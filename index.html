@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500&amp;subset=chinese-traditional" rel="stylesheet">
     <link rel=stylesheet type="text/css" href="./index.css">
-    <script src="//code.jquery.com/jquery-3.3.1.js">
+    <script src="http://code.jquery.com/jquery-3.3.1.js">
     </script>
     
     <title>張家銨 Jia-An Chang</title>
@@ -25,48 +25,20 @@
         //Elements of home page
         const name='<h1>張家銨 Jia An Chang</h1>';
         const profile='<img src="./profile.png" id="profile" alt="profile"/>';
-        const lg_btn='<ul id="lg_btn"><li><button id="Ch">繁體中文</button></li><li><button id="En">English</button></li><ul>';
+        const lg_btn='<div id="lg_btn"><button id="Ch">繁體中文</button><button id="En">English</button><div>';
         const contact='<p id="contact">國立成功大學 資訊工程學系學士班<br/>phone: 0928614772<br/>email:  at5lp6andy@gmail.com<br/>Github: https://github.com/JiaAnTW</p>';
         
         $("#En").click(function(){
           document.location.href='./En.html';
           });
         
-        //go to home page
-        $("#home").click(function(){
-          now=0;
-          $('#bar').css("left","10.45rem");
-          $("#container").fadeOut("slow",function(){
-              document.getElementById("container").innerHTML=name+profile+contact+lg_btn;
-              });
-          $("#container").fadeIn("slow");
-          });
+
           //Elements of home page
           const statement='高中時開始自學程式，大一跳過基礎直接修完資工系程式設計(二)後更加確認了自己的興趣。我喜歡在研究程式碼的同時，去了解並學習和該專案有關的知識(如:前端的UI/UX、後端的商業邏輯)，試著讓自己的專案人性化、涵蓋相關領域本身的特點。<br/><br/>大二那年轉到了資工系。<br/><br/>在過往沒有什麼認識的人的修課背景下，自學變成我很熟悉且樂在其中的事情(目前正在自學python及加強自己對前端網頁程式設計的知識)，我喜歡為了解決生活中的問題而去學習技術。因為自學過程發現自己對語言細節規定的了解不夠扎實，我正在尋求一份「c++或前端網頁程式設計的實習機會」，希望透過實戰補足自己疏漏的技能。';
-      //go to introduction page
-        $("#intro").click(
-          function(){
-            now=1;
-            $('#bar').css("left","13.8rem");
-            $("#container").fadeOut("slow",function(){
-              document.getElementById("container").innerHTML='<span id="statement">'+statement+'</span>';
-              });
-            $("#container").fadeIn("slow");
-            }
-        );
+
         //Elements of experience page
         const school='<span id="school">姓名: 張家銨<br/><br/> 生日 : 1998/11/30<br/><br/> 服役狀況: 尚未服役<br/><br/>學歷:<br/>2017.09~2018.08 — 國立成功大學 交通管理科學學系學士班 <br/>2018.09~現今— 國立成功大學 資訊工程學系學士班(大二轉系生)</span>';
-        //go to experience page
-        $("#exp").click(
-          function(){
-            now=2;
-            $('#bar').css("left","17.65rem");
-            $("#container").fadeOut("slow",function(){
-              document.getElementById("container").innerHTML=school;
-              });
-            $("#container").fadeIn("slow");
-            }
-        );
+        
         //Elements of skill page
         const skill_list='<span id="skill_list">語言/框架: C++, html5, css, javascript(ES6), jquery, React.js<br/>(點選下面圖片可觀看原始碼)</span>';
         const project_asset=[
@@ -92,7 +64,8 @@
             return '<div id="project_container"><a href="'+link[Object.number]+'" target="_blank"><img src="'+Object.pic+'" id="project_img" alt="p1"/></a> '+' <h2 id="project_topic">'+ Object.topic +'</h2>'+'<span id="project_content">'+Object.tool+'<br/><br/>'+describe[Object.number]+'</span></div>';
         }).join('');
 
-
+        // Functions of RWD and change window
+        
         const changeWindow=(type)=>{
           if(type===0){
             now=0;
@@ -134,25 +107,50 @@
             document.getElementById("container").innerHTML=name+profile+contact+lg_btn;  
         }
 
-
-        if($(window).width()<=765)
+        //Inital render
+        if($(window).width()<=769)
           changeWindow('m');
         else
           changeWindow(-1);
 
+        //rerender when the screen size changed
+
         $(document).ready(function(){
             $(window).resize(function() {
-                  if($(window).width()<=765)
+                  if($(window).width()<=769)
                     changeWindow('m');
                   else
                     changeWindow(-1);
               });
         });
 
+        //go to home page
+        $("#home").click(function(){
+            if($(window).width()>=769)
+              changeWindow(0);
+          });
+
+      //go to introduction page
+      $("#intro").click(
+          function(){
+            if($(window).width()>=769)
+              changeWindow(1);
+            }
+        );
+
+        //go to experience page
+        $("#exp").click(
+          function(){
+            if($(window).width()>=769)
+                changeWindow(2);
+            }
+        );
+
         //go to skill page
          $("#skill").click(
           function(){
-            changeWindow(3);
+            if($(window).width()>=769)
+                changeWindow(3);
           }
         );
     </script> 

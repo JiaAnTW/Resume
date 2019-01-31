@@ -21,16 +21,13 @@
   <body>
     <div id="container"></div>
     <script>
-        var now=0;
         //Elements of home page
         const name='<h1>張家銨 Jia An Chang</h1>';
         const profile='<img src="./profile.png" id="profile" alt="profile"/>';
-        const lg_btn='<div id="lg_btn"><button id="Ch">繁體中文</button><button id="En">English</button><div>';
+        const lg_btn='<div id="lg_btn"><button id="Ch" onclick="javascript:location.href=\'./index.html\'">繁體中文</button><button id="En" onclick="javascript:location.href=\'./En.html\'">English</button><div>';
         const contact='<p id="contact">國立成功大學 資訊工程學系學士班<br/>phone: 0928614772<br/>email:  at5lp6andy@gmail.com<br/>Github: https://github.com/JiaAnTW</p>';
         
-        $("#En").click(function(){
-          document.location.href='./En.html';
-          });
+        
         
 
           //Elements of home page
@@ -68,7 +65,6 @@
         
         const changeWindow=(type)=>{
           if(type===0){
-            now=0;
             $('#bar').css("left","10.45rem");
             $("#container").fadeOut("slow",function(){
               document.getElementById("container").innerHTML=name+profile+contact+lg_btn;
@@ -76,7 +72,6 @@
             $("#container").fadeIn("slow");
           }
           else if(type===1){
-            now=1;
             $('#bar').css("left","13.8rem");
             $("#container").fadeOut("slow",function(){
               document.getElementById("container").innerHTML='<span id="statement">'+statement+'</span>';
@@ -84,7 +79,6 @@
             $("#container").fadeIn("slow");
           }
           else if(type===2){
-            now=2;
             $('#bar').css("left","17.65rem");
             $("#container").fadeOut("slow",function(){
               document.getElementById("container").innerHTML=school;
@@ -93,7 +87,6 @@
           }
 
           else if(type===3){
-            now=3;
             $('#bar').css("left","22rem");
             $("#container").fadeOut("slow",function(){
               document.getElementById("container").innerHTML=skill_list+project;
@@ -103,8 +96,10 @@
           else if(type==='m'){
             document.getElementById("container").innerHTML=name+profile+contact+lg_btn+'<span id="statement">'+statement+'</span>'+school+skill_list+project;
           }
-          else
-            document.getElementById("container").innerHTML=name+profile+contact+lg_btn;  
+          else{
+            document.getElementById("container").innerHTML=name+profile+contact+lg_btn;
+            $('#bar').css("left","10.65rem"); 
+          }  
         }
 
         //Inital render
@@ -153,6 +148,7 @@
                 changeWindow(3);
           }
         );
+
     </script> 
     
   </body>

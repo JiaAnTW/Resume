@@ -210,12 +210,17 @@
 }
 
 @media (min-width: 0px)  and (max-width: 768px) {
+    .year{
+        width: 80%;
+    }
+
+
     .coding,.edu{
-        padding: 30px 20px;
+        padding: 30px 40px;
     }
 
     .project{
-        padding: 50px 0px;
+        padding: 50px 20px;
     }
 
     .info{

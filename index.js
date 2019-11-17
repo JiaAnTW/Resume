@@ -2,7 +2,7 @@ const content={
     chinese:{
         name:"張家銨",
         project:[
-            {name:"無人餐廳點餐系統",skill:['html','css','javascript','vue.js','node.js','MySQL','LinePay API'],img:"./swr.png",link:"https://swruidd2019.herokuapp.com/#/",describe:"",code:""},
+            {name:"無人餐廳點餐系統",skill:['html','css','javascript','vue.js','node.js','MySQL','LinePay API'],img:"./swr.png",link:"https://swruidd2019.herokuapp.com/#/",describe:"為「使用者介面設計」課程作品，和工設所、電機系學生以團隊方式分工製作一個點餐網頁(需串接金流)。此專案中，由設計師製圖後，交由工程師實現網站。工程部份，後端(含串接LinePay金流)由我個人負責、前端由我和其他同學共同製作。<br/><br/>本網頁以iphone6規格設計，以電腦觀看時，請使用chorme開啟後，按下F12，點擊上方的Responsive並改選為iphone6/7/8後，重新整理頁面。",code:""},
             {name:"成大轉系生心得分享平台",skill:['html','css','javascript','react.js','php','laravel','MySQL',"Google API"],link:"https://merry.ee.ncku.edu.tw/~nckutrans/index.php#/",img:"./trans.png",describe:"大二下使用React.js + PHP Laravel + MySQL個人獨立製作。採前後端分離、前端渲染，包含RWD設計、會員系統。因為我是轉系生，在轉系的過程中遇到了一些資訊不透明所造成的困難，我希望能用這個平台幫助未來想申請轉系的成大生。",code:""},
             {name:"2019成大交管營",skill:['html','css','javascript','react.js'],img:"./tcmsmall.png",link:"http://wintercamp.tcm.ncku.edu.tw/#/",describe:"大二上使用create_react_app製作，包含手機版和電腦版。程式、美術設計、UI/UX設計、伺服器架設......跟網站有關一切皆為我自己製作。由於剛開始製作時自己的RWD技術不成熟，改以將電腦版網頁和手機版網頁架在不同伺服器，偵測使用者載具後導向對應網站。",code:"https://github.com/JiaAnTW/NCKU_TCM2019"},
             {name:"你看起來很想學C++",skill:['c++'],img:"./c++small.png",link:null,describe:"大一下專案作業，課程要求在Qt環境下加入多型、製作類似「雷霆戰機」的GUI遊戲。我將一般人學習C++的過程結合在遊戲中，並額外加入了成就紀錄系統，玩家在關掉遊戲後仍可保有其獲得成就，並能在下次遊玩時檢視。",code:"https://github.com/JiaAnTW/NCKU_1stGrade_3_CSProgramDesign2_Project3"}
@@ -100,4 +100,8 @@ const openLink=()=>{
 
 const openGithub=()=>{
     window.open(content[nowLanguage].project[nowHandle].code, '_blank');
+}
+
+const openIT=()=>{
+    window.open('https://ithelp.ithome.com.tw/users/20116826/ironman/2278', '_blank');
 }

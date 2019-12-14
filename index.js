@@ -1,3 +1,5 @@
+$(".record").hide()
+$(".project").hide()
 const content={
     chinese:{
         name:"張家銨",
@@ -37,9 +39,9 @@ var nowLanguage="chinese";
 
 const changeLanguage=()=>{
     nowLanguage=(nowLanguage=="chinese")?"english":"chinese";
-    document.getElementById('language').innerHTML=(nowLanguage=="chinese")?"English version":"切換至中文";
+    document.getElementById('circle').style.top=(nowLanguage=="chinese")?"5px":"35px";
     document.getElementsByClassName('name')[0].innerHTML=content[nowLanguage].name;
-    document.getElementsByClassName('coding-topic')[0].innerHTML=content[nowLanguage].coding[0];
+    //document.getElementsByClassName('coding-topic')[0].innerHTML=content[nowLanguage].coding[0];
     document.getElementsByClassName('coding-level')[0].innerHTML=content[nowLanguage].coding[1];
     document.getElementsByClassName('coding-level')[1].innerHTML=content[nowLanguage].coding[2];
     document.getElementsByClassName('edu-topic')[0].innerHTML=content[nowLanguage].edu.topic;
@@ -47,7 +49,7 @@ const changeLanguage=()=>{
     document.getElementsByClassName('school')[1].innerHTML=content[nowLanguage].edu.school[1];
     document.getElementsByClassName('now')[0].innerHTML=content[nowLanguage].edu.school[2];
 
-    document.getElementsByClassName('project-topic')[0].innerHTML=content[nowLanguage].projectTopic;
+    document.getElementsByClassName('project-topic')[0].textContent=content[nowLanguage].projectTopic;
     content[nowLanguage].project.forEach((Element,Index)=>{
         document.getElementsByClassName('card-title')[Index].innerHTML=Element.name;
         if(nowLanguage!="chinese")
@@ -105,3 +107,42 @@ const openGithub=()=>{
 const openIT=()=>{
     window.open('https://ithelp.ithome.com.tw/users/20116826/ironman/2278', '_blank');
 }
+
+const changeShow=(id)=>{
+    document.getElementsByClassName("project-btn")[id].style.backgroundColor="rgba(225,157,41,1)";
+    document.getElementsByClassName("project-btn")[id].style.border="rgba(225,157,41,1)";
+    document.getElementsByClassName("project-btn")[id].style.color="rgb(61, 61, 59)";
+    document.getElementsByClassName("project-btn")[1-id].style.backgroundColor="transparent";
+    document.getElementsByClassName("project-btn")[1-id].style.border="1px solid white";
+    document.getElementsByClassName("project-btn")[1-id].style.color="white";
+    if(id==0){
+        $(".record").fadeOut("slow")
+        $(".project").fadeOut("slow",()=>{
+            $(".coding-edu").fadeIn("slow")
+        })
+    }
+    else{
+        $(".coding-edu").fadeOut("slow",()=>{
+            $(".project").fadeIn("slow")
+            $(".record").fadeIn("slow")
+        })
+    }
+}
+
+const fixedMenu=()=>{
+    const menu=document.getElementsByClassName("menu")[0];
+    const header=document.getElementsByClassName("header")[0];
+    if(window.pageYOffset<header.offsetHeight){
+        menu.style.position="absolute";
+        let height=header.offsetHeight
+        menu.style.top=height.toString()+"px";
+    }
+    else{
+        menu.style.position="fixed";
+        menu.style.top="0px";
+    }
+}
+
+fixedMenu();
+window.addEventListener("scroll",fixedMenu);
+window.addEventListener("resize",fixedMenu)

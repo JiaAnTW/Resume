@@ -11,8 +11,8 @@
     </head>
     <body>
         <div class="container-fluid">
+            <div id="language" ><div>中</div><button onclick="changeLanguage()"><div id="circle"></div></button><div>En</div></div>
             <div class="header">
-                <button id="language" onclick="changeLanguage()">English version</button>
                 <div class="profile">
                     <div class="self"></div>
                     <h5 class="name">張家銨</h5>
@@ -24,22 +24,34 @@
                     <div class="info-box"> <div class="icon"></div><div class="contact">https://github.com/JiaAnTW</div></div>
                 </div>
             </div>
+             <div class="menu">
+                <button class="project-btn" onclick="changeShow(0)">個人資訊</button>
+                <button class="project-btn" onclick="changeShow(1)">作品．其他</button>
+                
+             </div>
             <div class="main">
                 <div class="coding-edu">
                     <div class="coding">
-                        <h2  class="coding-topic">程式能力<div class="line"></div></h2>
-                        <p><span class="badge badge-dark coding-level">熟悉</span> html、css、Javascript(ES6)、React.js、C++</p>
-                        <p style="margin-top:10px"><span class="badge badge-dark coding-level">使用過</span> Vue.js、Node.js、php、laravel、mySQL</p>
+                        <div class="card">
+                            <div class="card-body">
+                                <div><h5 class="coding-level">常用語言/框架</h5><ul><li>html</li><li>css</li><li>javascript(ES6)</li><li>react.js</li><li>c++</li></ul></div>
+                                <div><h5 class="coding-level">使用過</h5><ul><li>vue.js</li><li>node.js</li><li>python</li><li>mySQL</li></ul></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="edu">
-                        <h2 class="edu-topic">學經歷<div class="line"></div></h2>
-                        <div class="edu-box"><div class="year">2017.09 ~ 2018.08</div><div class="school">國立成功大學交通管理學士班</div></div>
-                        <div class="edu-box" style="margin-top:10px"><div class="year">2018.09 ~ now</div><div class="school-box"><div class="school">國立成功大學資訊工程學士班</div><span class="badge badge-dark now" style="margin-left:5px">在學中(大三)</span></div></div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="edu-topic">學經歷</h5>
+                                    <div class="edu-box"><div class="year">2017.09 ~ 2018.08</div><div class="school">國立成功大學交通管理學士班</div></div>
+                                    <div class="edu-box" style="margin-top:10px"><div class="year">2018.09 ~ now</div><div class="school-box"><div class="school">國立成功大學資訊工程學士班</div></div><span class="badge badge-dark now" style="margin-left:5px">在學中(大三)</span></div>
+                                </div>
+                            </div>
                     </div>
                 </div>
                 <div class="record">
                     <div class="others">
-                        <h2 class="others-topic">其他<div class="line"></div></h2>
+                        <h2 class="others-topic">著作<div class="line"></div></h2>
                         <div class="others-box"><div class="contest">第11屆iT邦幫忙鐵人賽</div><button class="link-btn" onclick="openIT()">給初入JS框架新手的React.js入門 系列</button></div>
                     </div>
                 </div>
@@ -68,6 +80,8 @@
                     <button type="button" class="btn btn-dark" id="code" onclick="openGithub()">看原始碼</button>
                 </div>
             </div>
+            
+            
         </div>
         <!-- boostrap -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

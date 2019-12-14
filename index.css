@@ -1,5 +1,5 @@
 /* flex box*/
-.header,.profile,.name,.info,.info-box,.project-box,.coding-edu,.edu-box,.coding p,.project h2,.coding h2,.edu h2,.others h2,.record,.school-box{
+#language,.menu,.header,.profile,.name,.info,.info-box,.project-box,.coding-edu,.edu-box,.coding p,.project h2,.coding h2,.edu h2,.others h2,.record,.school-box{
     display: flex;
     display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
     display: -ms-flexbox;  /* TWEENER - IE 10 */
@@ -7,20 +7,20 @@
 }
 
 /* flex box align item*/
-.header,.name,.info-box,.project-box,.profile,.project h2,.coding h2,.edu h2,.others h2,.edu-box{
+.header,.name,.info-box,.project-box,.profile,.project h2,.coding h2,.edu h2,.others h2,.edu-box,#language{
     align-items: center;
     -ms-flex-align-items: center;
     -webkit-align-items: center;
 }
 
-.profile,.info,.project h2,.coding h2,.edu h2,.others h2,.edu-box{
+.profile,.info,.project h2,.coding h2,.edu h2,.others h2,.edu-box,#language{
     flex-direction: column;
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
 }
 
 /* flex box justify content*/
-.header,.profile,.name,.coding-edu,.record,.project-box{
+.menu,.header,.profile,.name,.coding-edu,.record,.project-box,#language{
     justify-content: center;
     -ms-justify-content: center;
     -webkit-justify-content: center;
@@ -56,6 +56,7 @@
 .container-fluid{
     padding: 0;
     flex-direction: row;
+    
 }
 
 body{
@@ -67,9 +68,15 @@ body{
     background-color: rgb(61, 61, 59);
 }
 
+.menu{
+    height: 75px;
+    background-color: rgba(61, 61, 59,1);
+}
+
 .main{
     flex-grow: 1;
-    background-color: rgb(61, 61, 59);
+    background-color: rgba(61, 61, 59,0.2);
+    margin-top: 75px;
 }
 
 .self{
@@ -93,7 +100,7 @@ body{
 }
 
 .record,.project{
-    margin-top: 50px;
+    padding-top: 50px;
 }
 .icon{
     width: 40px;
@@ -139,14 +146,21 @@ body{
 }
 
 .project h2,.coding h2,.edu h2,.others h2{
-    color: white;
+    color: rgb(61, 61, 59);
     font-family: 'Microsoft JhengHei';
-    margin-left: 20px;
     font-size: 27px;
 
 }
 
-.card{
+.coding h5,.edu h5{
+    color: rgb(61, 61, 59);
+    font-family: 'Microsoft JhengHei';
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.card {
     height: 460px;
     margin: 10px 20px;
     font-family: 'Microsoft JhengHei';
@@ -154,7 +168,20 @@ body{
     border-radius: 0;
 }
 
-.card p{
+.card-body{
+    position: relative;
+}
+
+.coding .card,.edu .card{
+    width: 290px;
+    height: 350px;
+}
+
+.edu .card{
+    width: 290px;
+}
+
+.card p .project-box{
     min-height: 97px;
     font-weight: 100;
     text-align: justify;
@@ -179,7 +206,9 @@ body{
 
 .open{
     width: 40%;
-    margin-left: 30%;
+    margin-left: 22%;
+    position: absolute;
+    bottom: 20px;
 }
 
 #modalLabel{
@@ -198,6 +227,8 @@ body{
 
 .modal-content{
     border:none;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .coding,.edu{
@@ -227,19 +258,40 @@ body{
 }
 
 .edu-box{
-    color: white;
+    color: rgb(61, 61, 59);
 }
 
 #language{
-    position: absolute;
-    right: 10px;
-    top:10px;
-    background-color: transparent;
-    outline: none;
-    color: white;
-    border:1px solid white;
-    border-radius: 5px;
+    position: fixed;
+    right: 5px;
+    bottom:10px;
+    color: rgb(61, 61, 59);
+    border-radius: 40px;
     padding: 10px;
+    z-index: 2;
+    font-weight: 700;
+}
+
+#language button{
+    position: relative;
+    width: 40px;
+    height: 70px;
+    background-color: rgb(61, 61, 59);
+    outline: none;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    border-radius: 40px;
+}
+
+#language #circle{
+    position: absolute;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 40px;
+    transition: top ease-in-out 0.5s;
 }
 
 .card-img-top{
@@ -251,7 +303,7 @@ body{
 }
 
 .line{
-    background-color: white;
+    background-color: rgb(61, 61, 59);
     width: 80px;
     height: 1px;
     margin-top: 7px;
@@ -259,13 +311,14 @@ body{
 }
 
 .others-box{
-    color: white;
+    color: rgb(61, 61, 59);
+    text-align: center;
 }
 
 .link-btn{
     background-color: transparent;
-    border: 0.5px solid white;
-    color: white;
+    border: 0.5px solid rgb(61, 61, 59);
+    color: rgb(61, 61, 59);
     border-radius: 5px;
     padding: 10px;
     margin-top: 5px;
@@ -276,10 +329,35 @@ body{
     background-color: rgba(255,255,255,0.2);
 }
 
+.project-btn:nth-child(1) {
+    background-color: rgba(225,157,41,1);
+}
+
+.project-btn:nth-child(2) {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.menu{
+    position: absolute;
+    top:250px;
+    z-index: 2;
+    width: 100%;
+}
+
+.menu button{
+    border: none;
+    outline: none;
+    width: 180px;
+    margin: 15px 10px;
+    padding: 0px 5px;
+}
+
 @media (min-width: 0px)  and (max-width: 768px) {
 
     .coding,.edu{
-        padding: 30px 40px;
+        padding: 30px 0px;
     }
 
     .project{
@@ -302,6 +380,10 @@ body{
         justify-content: center;
         -ms-justify-content: center;
         -webkit-justify-content: center;
+    }
+
+    #language{
+        right: 0.5px;
     }
 }
 

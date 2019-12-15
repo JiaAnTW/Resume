@@ -1,5 +1,5 @@
 /* flex box*/
-#language,.menu,.header,.profile,.name,.info,.info-box,.project-box,.coding-edu,.edu-box,.coding p,.project h2,.coding h2,.edu h2,.others h2,.record,.school-box{
+.intro,.line-box,.github, .container-fluid,#language,.menu,.header,.profile,.name,.info,.info-box,.project-box,.coding-edu,.edu-box,.coding p,.project h2,.coding h2,.edu h2,.others h2,.record,.school-box{
     display: flex;
     display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
     display: -ms-flexbox;  /* TWEENER - IE 10 */
@@ -7,20 +7,20 @@
 }
 
 /* flex box align item*/
-.header,.name,.info-box,.project-box,.profile,.project h2,.coding h2,.edu h2,.others h2,.edu-box,#language{
+.intro,.header,.name,.info-box,.project-box,.profile,.project h2,.coding h2,.edu h2,.others h2,.edu-box,#language,.github{
     align-items: center;
     -ms-flex-align-items: center;
     -webkit-align-items: center;
 }
 
-.profile,.info,.project h2,.coding h2,.edu h2,.others h2,.edu-box,#language{
+.container-fluid,.profile,.info,.project h2,.coding h2,.edu h2,.others h2,.edu-box,#language{
     flex-direction: column;
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
 }
 
 /* flex box justify content*/
-.menu,.header,.profile,.name,.coding-edu,.record,.project-box,#language{
+.intro,.line-box,.menu,.header,.profile,.name,.coding-edu,.record,.project-box,#language,.github{
     justify-content: center;
     -ms-justify-content: center;
     -webkit-justify-content: center;
@@ -32,13 +32,7 @@
     -webkit-align-items: flex-start;
 }
 
-.info{
-    justify-content: space-around;
-    -ms-justify-content: space-around;
-    -webkit-justify-content: space-around;
-}
-
-.coding p{
+.coding p,.info{
     justify-content: flex-start;
     -ms-justify-content: flex-start;
     -webkit-justify-content: flex-start;
@@ -54,28 +48,26 @@
 }
 
 .container-fluid{
-    padding: 0;
-    flex-direction: row;
-    
+    padding: 0; 
 }
 
 body{
     font-family: 'Microsoft JhengHei';
+    background-color: rgba(61, 61, 59,0.2);
 }
 
 .header{
-    height: 250px;
-    background-color: rgb(61, 61, 59);
+    height: 200px;
+    background-color: rgba(61, 61, 59,0.95);
 }
 
 .menu{
     height: 75px;
-    background-color: rgba(61, 61, 59,1);
+    background-color: rgba(61, 61, 59,0.95);
 }
 
 .main{
     flex-grow: 1;
-    background-color: rgba(61, 61, 59,0.2);
     margin-top: 75px;
 }
 
@@ -110,12 +102,7 @@ body{
     margin-right: 5px;
 }
 
-.info-box:nth-child(3) .icon{
-    background-image: url('./github2.png');
-    background-position: 47% 60%;
-    background-size: 50%;
-    background-repeat: no-repeat;
-}
+
 
 .info-box:nth-child(2) .icon{
     background-image: url('./gmail.png');
@@ -131,14 +118,21 @@ body{
     background-repeat: no-repeat;
 }
 
+.github .icon{
+    background-image: url('./github2.png');
+    background-position: 47% 60%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+
 .info{
     height: 70%;
-    margin-left: 30px;
 }
 
 .contact{
-    color: white;
+    color: rgb(61, 61, 59);
     margin-left: 5px;
+    font-size: 14px;
 }
 
 .project{
@@ -152,7 +146,7 @@ body{
 
 }
 
-.coding h5,.edu h5{
+.coding h5,.edu h5,.contact-info h5{
     color: rgb(61, 61, 59);
     font-family: 'Microsoft JhengHei';
     font-size: 20px;
@@ -172,7 +166,7 @@ body{
     position: relative;
 }
 
-.coding .card,.edu .card{
+.coding .card,.edu .card,.contact-info .card{
     width: 290px;
     height: 350px;
 }
@@ -231,8 +225,8 @@ body{
     overflow-y: auto;
 }
 
-.coding,.edu{
-    padding: 30px 70px;
+.coding,.edu, .contact-info{
+    padding: 30px 0px;
 }
 
 .coding h2,.edu h2{
@@ -259,6 +253,7 @@ body{
 
 .edu-box{
     color: rgb(61, 61, 59);
+    text-align: center;
 }
 
 #language{
@@ -298,8 +293,8 @@ body{
     border-radius: 0;
 }
 
-#language:hover{
-    background-color: rgba(255,255,255,0.1);
+.line-box{
+    width: 100%;
 }
 
 .line{
@@ -321,6 +316,7 @@ body{
     color: rgb(61, 61, 59);
     border-radius: 5px;
     padding: 10px;
+    max-width: 80vw;
     margin-top: 5px;
     outline:none;
 }
@@ -341,7 +337,7 @@ body{
 
 .menu{
     position: absolute;
-    top:250px;
+    top:200px;
     z-index: 2;
     width: 100%;
 }
@@ -354,6 +350,19 @@ body{
     padding: 0px 5px;
 }
 
+.intro{
+    width: 100%;
+    padding: 30px 0;
+}
+
+.intro div{
+    width: 350px;
+}
+
+.intro p{
+    text-align: center;
+}
+
 @media (min-width: 0px)  and (max-width: 768px) {
 
     .coding,.edu{
@@ -364,13 +373,17 @@ body{
         padding: 50px 20px;
     }
 
+    .menu{
+        top:180px;
+    }
+
     .info{
         width: 100%;
-        margin-left: 20%;
+        margin-left: 5%;
         height: 40%;
     }
     .header{
-        height: 350px;
+        height: 180px;
         flex-wrap: wrap;
         -ms-flex-wrap: wrap;
         -webkit-flex-wrap: wrap;

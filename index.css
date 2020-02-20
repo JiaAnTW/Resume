@@ -291,6 +291,7 @@ body{
 
 .card-img-top{
     border-radius: 0;
+    height: 216px;
 }
 
 .line-box{
